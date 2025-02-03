@@ -1,0 +1,9 @@
+services:
+  sftp-server:
+     image: atmoz/sftp
+     container_name: sftp-server
+     ports: 
+       - "2222:22"
+     volumes:
+       - /mnt/sftp-server/upload:/home/foo:rw
+     command: foo:pass:::/home/foo

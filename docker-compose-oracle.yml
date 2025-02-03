@@ -1,0 +1,23 @@
+  version: "3.8"
+  services:
+    oracle:
+      image: gvenzl/oracle-free:latest
+      container_name: oracle-db
+      ports:
+        - "1521:1521"
+      environment:
+        ORACLE_PASSWORD: oracle_____pass
+        APP_USER: dev
+        APP_USER_PASSWORD: oracle
+        ORACLE_DATABASE: oracle
+      # volumes: 
+      #   - /etc/oracle/oracle_db:/opt/oracle/oradata:rw
+      healthcheck:
+        test: ["CMD", "healthcheck.sh"]
+        interval: 10s
+        timeout: 5s
+        retries: 10
+        start_period: 5s
+        start_interval: 5s
+    
+              
